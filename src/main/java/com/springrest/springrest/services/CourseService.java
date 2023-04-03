@@ -9,7 +9,7 @@ public interface CourseService {
 	
 	public List<Course> getCourses();
 
-	public Optional<Course> getCourse(long courseId);
+	public Course getCourse(long courseId);
 
 	public Course addCourse(Course course);
 

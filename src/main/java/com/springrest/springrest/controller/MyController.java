@@ -34,7 +34,7 @@ public class MyController {
 	
 	//get a course with a specific id
 	@GetMapping("/courses/{courseId}")
-	public Optional<Course> getCourse(@PathVariable long courseId) {
+	public Course getCourse(@PathVariable long courseId) {
 		return this.cs.getCourse(courseId);
 	}
 	

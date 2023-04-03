@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springrest.springrest.entities.Course;
+import com.springrest.springrest.exception.CourseNotFoundException;
 import com.springrest.springrest.repository.CourseRepository;
 
 @Service
@@ -22,10 +23,10 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public Optional<Course> getCourse(long courseId) {
+	public Course getCourse(long courseId) {
 		// TODO Auto-generated method stub
 		
-		return courseRepository.findById(courseId);
+		return (courseRepository.findById(courseId)).orElseThrow(()-> new CourseNotFoundException("Course", "Id",courseId));
 	}
 
 	@Override
